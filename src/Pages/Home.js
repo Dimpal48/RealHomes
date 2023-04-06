@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ListingItem from "../Components/ListingItem";
+import HomePrtTwo from '../Components/HomePrtTwo';
 
 import { db } from "../firebase";
 
@@ -111,13 +112,15 @@ function Home() {
   return (
     <div>
       <Slider />
+      <HomePrtTwo />
       <div className="max-w-6xl mx-auto pt-4 space-y-6">
         {offerListings && offerListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold text-slate-600">Recent offers</h2>
-            <Link to="/offers">
-              <p className="px-3 text-sm text-sky-600 hover:text-sky-800 transition duration-150 ease-in-out">
-                Show more offers
+          <h2 className="text-2xl mt-28 mb-10 text-center font-medium text-slate-600">RECENT OFFERS </h2>
+          <Link to="/offers"
+              className='flex text-center justify-end'>
+              <p className="px-3 w-36 bg-[#ff749d] hover:opacity-70 text-white text-sm uppercase   py-1 shadow-2xl font-semibold rounded-md  text-center transition duration-150 ease-in-out">
+                View More
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
@@ -129,14 +132,17 @@ function Home() {
                 />
               ))}
             </ul>
+            
           </div>
         )}
         {rentListings && rentListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold text-slate-600">Places for rent</h2>
-            <Link to="/category/rent">
-              <p className="px-3 text-sm text-sky-600 hover:text-sky-800 transition duration-150 ease-in-out">
-              Show more places for rent
+            <h2 className="text-2xl mt-28  text-center font-medium text-slate-600">NEW PROPERTIES </h2>
+            <p className='text-center text-4xl mb-10 mt-4 font-bold text-sky-900'>For Rent</p>
+            <Link to="/category/rent"
+              className='flex text-center justify-end'>
+              <p className="px-3  w-36 bg-[#ff749d] hover:opacity-70 text-white text-sm uppercase   py-1 shadow-2xl font-semibold rounded-md  text-center transition duration-150 ease-in-out">
+                View More
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
@@ -148,14 +154,18 @@ function Home() {
                 />
               ))}
             </ul>
+            
+
           </div>
         )}
         {saleListings && saleListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for sale</h2>
-            <Link to="/category/sale">
-              <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
-                Show more places for sale
+            <h2 className="text-2xl mt-28  text-center font-medium text-slate-600">NEW PROPERTIES </h2>
+            <p className='text-center text-4xl mb-10 mt-4 font-bold text-sky-900'>For Sale</p>
+            <Link to="/category/sale"
+              className='flex text-center justify-end'>
+              <p className="px-3  w-36 bg-[#ff749d] hover:opacity-70 text-white text-sm uppercase   py-1 shadow-2xl font-semibold rounded-md  text-center transition duration-150 ease-in-out">
+                View More
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
@@ -167,6 +177,7 @@ function Home() {
                 />
               ))}
             </ul>
+            
           </div>
         )}
       </div>

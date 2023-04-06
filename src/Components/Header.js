@@ -10,18 +10,21 @@ function Header() {
     // console.log(location.pathname);
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-          if (user) {
-            setPageState("Profile");
-          } else {
-            setPageState("Sign in");
-          }
+            if (user) {
+                setPageState("Profile");
+            } else {
+                setPageState("Sign in");
+            }
         });
-      }, [auth]);
-    function pathMatchRoute(route) {
-        if (route === location.pathname) {
-            return true;
-        }
-    }
+    }, [auth]);
+    // function pathMatchRoute(route) {
+    //     // console.log(route);
+    //     // console.log(location.pathname);
+    //     if (route === location.pathname) {
+    //         return true;
+    //     }
+    // }
+
 
     return (
         <div className='bg-white border-b shadow-lg sticky top-0 z-40' >
@@ -35,24 +38,29 @@ function Header() {
                 </div>
                 <div>
                     <ul className='flex space-x-10'>
-                        <li className={`cursor-pointer py-3 text-base font-semibold text-gray-400 border-b-[3px] border-b-transparent
-                    ${pathMatchRoute("/") && "text-black border-b-blue-600"}`}
+                        <li className="cursor-pointer py-3 text-base font-semibold text-gray-400  hover:text-sky-900"                  
                             onClick={() => navigate("/")}
                         >
                             Home
                         </li>
 
-                        <li className={`cursor-pointer py-3 text-base font-semibold text-gray-400 border-b-[3px] border-b-transparent
-                         ${pathMatchRoute("/offers") && "text-black border-b-blue-600"}`}
-                            onClick={() => navigate("/offers")}
+                        <li className="cursor-pointer py-3 text-base font-semibold text-gray-400 hover:text-sky-900"
+                            onClick={() => navigate("/category/sale")}
                         >
+                            Sales
+                        </li>
+                        <li className="cursor-pointer py-3 text-base font-semibold text-gray-400 hover:text-sky-900"
+                            onClick={() => navigate("/category/rent")}
+                        >
+                            Rentals
+                        </li>
+                        <li className="cursor-pointer py-3 text-base font-semibold text-gray-400 hover:text-sky-900"
+                            onClick={() => navigate("/offers")} >
                             Offers
                         </li>
-
-                        <li className={`cursor-pointer py-3 text-base font-semibold text-gray-400 border-b-[3px] border-b-transparent
-                         ${(pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) && "text-black border-b-blue-600 border-opacity-100"}`}
+                        <li className="cursor-pointer py-3 text-base font-semibold text-gray-400 hover:text-sky-900"
                             onClick={() => navigate("/profile")}>
-                             {pageState}
+                            {pageState}
                         </li>
                     </ul>
                 </div>

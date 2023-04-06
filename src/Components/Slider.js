@@ -63,13 +63,13 @@ function Slider() {
                     pagination={{ type: "progressbar" }}
                     effect="fade"
                     modules={[EffectFade]}
-                // autoplay={{ delay: 3000 }}
+                autoplay={{ delay: 1000 }}
                 >
                     {listings.map(({ data, id }) => (
                         <SwiperSlide
 
                             key={id}
-                            onClick={() => navigate(`/category/${data.type}/${id}`)}
+                            
                         >
                             <div
                                 style={{
@@ -78,7 +78,8 @@ function Slider() {
                                 }}
                                 className="relative w-full h-[620px] overflow-hidden"
                             ></div>
-                            <div className="text-black flex sm:gap-4 absolute sm:left-40 left-20 top-56 gap-2 font-medium max-w-[90%] bg-white shadow-2xl bg-opacity-100 p-2 rounded-tr-2xl">
+                            <div className="text-black flex sm:gap-4 absolute sm:left-40 left-20 top-56 gap-2 font-medium max-w-[90%] cursor-pointer bg-white shadow-2xl bg-opacity-100 p-2 rounded-tr-2xl"
+                            onClick={() => navigate(`/category/${data.type}/${id}`)}>
                                 <div>
                                     <p className=" font-semibold mb-3 text-lg text-black px-4 pt-4">
                                         {data.name}
@@ -107,9 +108,7 @@ function Slider() {
                                 </div>
                             </div>
 
-                            {/* <p className="text-[#f1faee] absolute left-1 top-3 font-medium max-w-[90%] bg-[#457b9d] shadow-lg opacity-90 p-2 rounded-br-3xl">
-                                {data.name}
-                            </p> */}
+                          
 
                         </SwiperSlide>
                     ))}
